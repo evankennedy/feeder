@@ -62,6 +62,16 @@ public class UserInterFace extends JApplet implements ActionListener
 		
 		
 		showStatus("Searching...... " ); // add in another search function class which might take some time to search fodo ads
+		/*
+		// Download all ads from nearby stores
+		fetchAds(zipValue);
+		
+		// Generate meal from ad list
+		MealMaker meal = new MealMaker();
+		
+		food = meal.getTitle();
+		price = meal.getPrice();
+		*/
 		showStatus("Food Find! ");// once find output it over here....
 			
 		//resultField.setText(foodName);
@@ -83,6 +93,12 @@ public class UserInterFace extends JApplet implements ActionListener
 		String foodName= "hamburger";
 		
 		return foodName;
+	}
+	
+	
+	// Downloads ads from nearby stores and stores them in a local file
+	private void fetchAds(int zip) {
+		
 	}
 
 }
