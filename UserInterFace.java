@@ -5,14 +5,15 @@ import java.awt.event.ActionListener;
 import javax.swing.JApplet;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.*;
+import sun.audio.*;
+
 /*
 Program Name: Food Finder
- Team: Feeder
- Purpose: a user interface class that take in some of the requirement input
- 
- 
- 
- */
+Team: Feeder
+Purpose: a user interface class that take in some of the requirement input
+output background image and sound.
+*/
 
 
 public class UserInterFace extends JApplet implements ActionListener
@@ -43,9 +44,34 @@ public class UserInterFace extends JApplet implements ActionListener
 		resultField = new JTextField(10);
 		resultField.setEditable(false);
 		container.add(resultField);
-	}	
+	}
 	
 	
+	public void showBackGround()
+	{
+		
+		backGroundField = new JFrame(" ");
+		try
+		{
+			//backGroundField.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("")))));
+			
+		}
+		catch(IOException e)
+		{
+			System.out.println("unable to load image");
+		
+		}
+		backGroundField.setResizable(false);
+		backGroundField.pack();
+		backGroundField.setVisible(true);
+			
+	}
+	
+	public static void music()
+	{	
+	
+	
+	}
 	public void actionPerformed(ActionEvent e)
 	{
 
@@ -97,7 +123,8 @@ public class UserInterFace extends JApplet implements ActionListener
 	
 	
 	// Downloads ads from nearby stores and stores them in a local file
-	private void fetchAds(int zip) {
+	private void fetchAds(int zip) 
+	{
 		
 	}
 
