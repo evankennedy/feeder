@@ -29,15 +29,27 @@ public class Feeder extends JApplet implements ActionListener
 	JTextField zipField, resultField;
 	ArrayList<Store> stores;
 	//ArrayList<>
+	Container container = getContentPane();
 	
 	public void init()
 	{
 		
 		
 
-		Container container = getContentPane();
+		
+			
+		try
+		{
+			container.add(new JLabel(new ImageIcon(ImageIO.read(new File("C:/Users/Jack/Desktop/New Folder/IMG_0.JPG")))));
+			
+		} catch(IOException a)
+		{
+			
+			System.out.println("Image doesn't exists");
+		}
+		
 		container.setLayout(new FlowLayout(40)); // this one is just set up some 
-	
+			
 		zipLabel = new JLabel("Please enter your zip code: "); 
 		container.add(zipLabel);
 
@@ -53,14 +65,17 @@ public class Feeder extends JApplet implements ActionListener
 		container.add(resultField);
 	}
 	
-	/*
+	
 	public void showBackGround()
 	{
 		
-		backGroundField = new JFrame(" ");
+		
+		
+		JFrame F = new JFrame("aps");
+		
 		try
 		{
-			//backGroundField.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("")))));
+			backGroundField.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("")))));
 			
 		}
 		catch(IOException e)
@@ -72,7 +87,7 @@ public class Feeder extends JApplet implements ActionListener
 		backGroundField.pack();
 		backGroundField.setVisible(true);
 			
-	}*/
+	}
 	
 	public static void music()
 	{	
