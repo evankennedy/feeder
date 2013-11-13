@@ -1,0 +1,42 @@
+import java.util.*;
+import java.text.*;
+import java.util.Arrays;
+
+public class Sort 
+{
+	public static void main (String[] args)
+	{
+		int [] a = new int [100000];
+		fillArray(a);
+		long start = System.currentTimeMillis();
+		Arrays.sort(a);// this is quick sort which will sort from lowest price to highests.
+		long finish = System.currentTimeMillis();
+		double total = (finish-start)/1000.0;
+		//displayArray(a);
+		System.out.print("It took " +total + " Second to sort" );
+		
+	}
+	
+	
+	public static void fillArray(int []a)
+	{
+		for (int i = 0; i < a.length; i++)
+		{
+			a[i] = (int) (10000*Math.random());
+			
+			// this one i need the list of food ingrediants prices
+			
+		}
+	}
+	
+	public static void displayArray(int[] a)
+	{
+		for (int i = 0; i <a.length; i++)
+		{
+			System.out.print(a[i]+ " ");
+		}
+		System.out.println();
+		
+	}
+}
+
