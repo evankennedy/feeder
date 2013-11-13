@@ -13,7 +13,8 @@ public class Sort
 		long finish = System.currentTimeMillis();
 		double total = (finish-start)/1000.0;
 		//displayArray(a);
-		System.out.print("It took " +total + " Second to sort" );
+		System.out.print("It took " +total + " Second to sort" ); // display the time it took.
+		
 		
 	}
 	
