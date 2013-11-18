@@ -7,7 +7,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-
 import javax.swing.JApplet;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -33,11 +32,6 @@ public class Feeder extends JApplet implements ActionListener
 	
 	public void init()
 	{
-		
-		
-
-		
-			
 		try
 		{
 			container.add(new JLabel(new ImageIcon(ImageIO.read(new File("C:/Users/Jack/Desktop/New Folder/IMG_0.JPG")))));
@@ -88,12 +82,88 @@ public class Feeder extends JApplet implements ActionListener
 		backGroundField.setVisible(true);
 			
 	}
+	/* // i'm still testing these new buttoms on how to put into main......
+	public static void button()
+	{
+		public Button help = new Button("Help");
+		public Button credit = new button("Credit");
+		public Button search = new button("Search");
+		public Button restart = new button("Restart");
+		public Button back = new button("Back Main Menu");
+	}
+	
+	public void buttomClick()
+	{
+		Object source;
+		if (source == help)
+		{
+			setUpHelp();
+			
+		}
+		
+		else if (source == credit)
+		{
+			setUpcredit();
+		}
+			
+		else if (source == Search)
+		{
+			setUpSearch();
+		}
+			
+		else if (source == restart )
+		{
+			setUpRestart();
+		}
+		
+		else if (source == back)
+		{
+			back();
+		}
+	}
+	
+	public void setUpHelp()
+	{
+		system.out.println("The food finder program is a program that will help the users to find a meal");
+		system.out.println("using minimum  of money and travling distance. ");
+		
+		add(back);
+		back.addActionListener()
+		
+	}
+	
+	public void setUpcredit()
+	{
+		system.out.println("This program is made by programing team Feeder");
+		system.out.println("any Users can download and use the programs for free");
+		
+		add(back);
+		back.addActionListener()
+		
+	}
+	
+	public void setUpSearch()
+	{
+		
+	}
+	
+	public void setUpRestart()
+	{
+		add(help);
+		add(credit);
+		add(serach);
+		add(restart);
+	}
+	
+	public void back()
+	{
+		
+	}
 	
 	public static void music()
 	{	
-	
-	
 	}
+	*/
 	public void actionPerformed(ActionEvent e)
 	{
 
@@ -146,6 +216,7 @@ public class Feeder extends JApplet implements ActionListener
 	
 		return foodName;
 	}
+	
 	
 	
 	// Downloads ads from nearby stores and stores them in a local file
@@ -217,7 +288,8 @@ public class Feeder extends JApplet implements ActionListener
 			
 			stores.addAll(handler.getStores());
 			
-		} catch (Throwable e) {
+		} catch (Throwable e) 
+		{
 			e.printStackTrace ();
 		}
 	}
