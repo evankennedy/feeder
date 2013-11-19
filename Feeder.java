@@ -82,87 +82,140 @@ public class Feeder extends JApplet implements ActionListener
 		backGroundField.setVisible(true);
 			
 	}
-	/* // i'm still testing these new buttoms on how to put into main......
-	public static void button()
-	{
-		public Button help = new Button("Help");
-		public Button credit = new button("Credit");
-		public Button search = new button("Search");
-		public Button restart = new button("Restart");
-		public Button back = new button("Back Main Menu");
-	}
+	/* 
 	
-	public void buttomClick()
-	{
-		Object source;
-		if (source == help)
-		{
-			setUpHelp();
-			
-		}
-		
-		else if (source == credit)
-		{
-			setUpcredit();
-		}
-			
-		else if (source == Search)
-		{
-			setUpSearch();
-		}
-			
-		else if (source == restart )
-		{
-			setUpRestart();
-		}
-		
-		else if (source == back)
-		{
-			back();
-		}
-	}
 	
-	public void setUpHelp()
-	{
-		system.out.println("The food finder program is a program that will help the users to find a meal");
-		system.out.println("using minimum  of money and travling distance. ");
-		
-		add(back);
-		back.addActionListener()
-		
-	}
 	
-	public void setUpcredit()
-	{
-		system.out.println("This program is made by programing team Feeder");
-		system.out.println("any Users can download and use the programs for free");
-		
-		add(back);
-		back.addActionListener()
-		
-	}
+	import java.awt.*;
+import java.awt.event.*;
+import java.applet.Applet;
+import java.awt.Container;
+
+import javax.swing.JApplet;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+public class Feeder extends Applet
+{
+	public Button help = new Button("Help");
+    public Button credit = new Button("Credit");
+    public Button search = new Button("Search");
+    public Button restart = new Button("Restart");
+    JLabel intro;
+    JLabel zipLabel;
+    //Container container = getContentPane();
+    JTextField zipField, resultField;
+    public Interface canvas = new Interface();
+
+    public void init()
+    {
+    	/*
+    	container.setLayout(new FlowLayout(40));
+    	
+    	intro = new JLabel("Welcom to Feeder program: Please select the follow bottoms to containue: ");
+    	container.add(intro);
+    	*/
+    	canvas.setSize(600,600);	
+    	
+    	add(help);
+        add(credit);
+        add(search);
+        add(restart);
+    	
+        help.addActionListener(canvas);
+        credit.addActionListener(canvas);
+        search.addActionListener(canvas);
+        restart.addActionListener(canvas);
+        
+    }
+    
+    
+ 
+
+
+	public class Interface extends Canvas implements ActionListener
+    {
+    	Object source;
+    	public void actionPerformed(ActionEvent event)
+    	{
+    		source = event.getSource();
+    		
+    	}
+    	
+    	public void buttomClick()
+    	{
+    		
+    		if (source == help)
+    		{
+    			 setUpHelp();
+    		}
+    		
+    		else if (source == credit)
+    		{
+    			 setUpcredit();
+    		}
+    		
+    		else if (source == search)
+    		{
+    			setUpSearch();
+    		}
+    		else if (source == restart)
+    		{
+    			setUpRestart();
+    		}
+    		
+    	}
+    	
+    	
+    	public void setUpHelp()
+        {
+    		  JLabel helpLabel;
+    		  JLabel help2Label;
+    		  Container container = getContentPane();
+    		
+    		 container.setLayout(new FlowLayout(40)); // this one is just set up some 
+             
+             helpLabel = new JLabel("The food finder program is a program that will help the users to find a meal"); 
+             container.add(helpLabel);
+             JLabel help2Label; = new JLabel("using minimum  of money and travling distance. ");
+             container.add(help2Label);
+             
+             
+ 
+
+        }
+        
+        public void setUpcredit()
+        {
+        		System.out.println("This program is made by programing team Feeder");
+        		System.out.println("any Users can download and use the programs for free");
+                
+       
+        }
+        
+        public void setUpSearch()
+        {
+                
+        }
+        
+        public void setUpRestart()
+        {
+            
+        }
+        
+    	
+  
+    	
+    }
 	
-	public void setUpSearch()
-	{
-		
-	}
 	
-	public void setUpRestart()
-	{
-		add(help);
-		add(credit);
-		add(serach);
-		add(restart);
-	}
+}
 	
-	public void back()
-	{
-		
-	}
 	
-	public static void music()
-	{	
-	}
 	*/
 	public void actionPerformed(ActionEvent e)
 	{
