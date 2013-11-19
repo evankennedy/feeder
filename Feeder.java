@@ -113,12 +113,12 @@ public class Feeder extends Applet
 
     public void init()
     {
-    	/*
+    	
     	container.setLayout(new FlowLayout(40));
     	
     	intro = new JLabel("Welcom to Feeder program: Please select the follow bottoms to containue: ");
     	container.add(intro);
-    	*/
+    	
     	canvas.setSize(600,600);	
     	
     	add(help);
