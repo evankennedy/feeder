@@ -105,4 +105,4 @@ public class FeedHandler extends DefaultHandler {
     public ArrayList<Item> getItems() {
         return items;
     }
-}
+}    
