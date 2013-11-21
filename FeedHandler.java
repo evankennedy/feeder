@@ -4,12 +4,12 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 public class FeedHandler extends DefaultHandler {
-	
+  
     private ArrayList<Store> stores = new ArrayList<Store>();
     private ArrayList<Item> items = new ArrayList<Item>();
     private Store currentStore;
     private Item currentItem;
-	private ArrayList<String> openTags = new ArrayList<String>();
+  private ArrayList<String> openTags = new ArrayList<String>();
     
     public void startDocument() throws SAXException {
     	
@@ -20,8 +20,8 @@ public class FeedHandler extends DefaultHandler {
     }
 
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-    	if(qName == 's') stores.add(currentStore = new Store());
-        if(qName == 'i') items.add(currentItem = new Item());
+    	if(qName.equals("s")) stores.add(currentStore = new Store());
+        if(qName.equals("i")) items.add(currentItem = new Item());
     	openTags.add(0, qName);
     }
 
@@ -29,15 +29,15 @@ public class FeedHandler extends DefaultHandler {
     	int n = openTags.indexOf(qName);
     	for(int i=0; i<=n; i++) openTags.remove(0);
     	if(qName == "poi") {
-	    	currentStore.url = "http://weeklyspecials." + currentStore.storeName.toLowerCase() + ".com/rss.jsp?drpStoreID=" + currentStore.storeNumber + "&categories=all";
-	    	currentStore = null;
+      	currentStore.url = "http://weeklyspecials." + currentStore.storeName.toLowerCase() + ".com/rss.jsp?drpStoreID=" + currentStore.storeNumber + "&categories=all";
+      	currentStore = null;
     	}
     }
 
     public void characters(char ch[], int start, int length) throws SAXException {
     	String tag = openTags.get(0);
     	String value = new String(ch, start, length);
-        if(openTags.indexOf('stores') != -1) {
+        if(openTags.indexOf("stores") != -1) {
             // In Stores
             /*
             <s>
@@ -61,7 +61,7 @@ public class FeedHandler extends DefaultHandler {
                 else if(tag == "d") currentStore.distance = Float.parseFloat(value);
                 else if(tag == "id") currentStore.id = value;
             } catch(Exception e) {}
-        } else if(openTags.indexOf('items') != -1) {
+        } else if(openTags.indexOf("items") != -1) {
             // In Items
             /*
             <i>
@@ -88,7 +88,7 @@ public class FeedHandler extends DefaultHandler {
                 else if(tag == "ed") currentItem.expireDate = value;
                 else if(tag == "pd") currentItem.postDate = value;
                 else if(tag == "sid") currentItem.sid = value;
-                else if(tag == "m") currentItem.memberOnly = (value == '1');
+                else if(tag == "m") currentItem.memberOnly = (value == "1");
                 else if(tag == "c") currentItem.category = value;
             } catch(Exception e) {}
         }
@@ -105,4 +105,4 @@ public class FeedHandler extends DefaultHandler {
     public ArrayList<Item> getItems() {
         return items;
     }
-}    
+}
