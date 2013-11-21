@@ -34,7 +34,7 @@ URL: http://cecs343-feeder.appspot.com/
 			<a1>1930 N Lakewood Blvd</a1> <!-- Address 1 -->
 			<a2></a2> <!-- Address 2 -->
 			<c>Long Beach</c> <!-- City -->
-			<s>CA</s> <!-- State -->
+			<st>CA</s> <!-- State -->
 			<z>90815</z> <!-- Zip -->
 		</s>
 	</stores>
