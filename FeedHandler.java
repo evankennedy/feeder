@@ -28,10 +28,6 @@ public class FeedHandler extends DefaultHandler {
     public void endElement(String uri, String localName, String qName) throws SAXException {
     	int n = openTags.indexOf(qName);
     	for(int i=0; i<=n; i++) openTags.remove(0);
-    	if(qName == "poi") {
-      	currentStore.url = "http://weeklyspecials." + currentStore.storeName.toLowerCase() + ".com/rss.jsp?drpStoreID=" + currentStore.storeNumber + "&categories=all";
-      	currentStore = null;
-    	}
     }
 
     public void characters(char ch[], int start, int length) throws SAXException {
