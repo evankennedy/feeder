@@ -14,13 +14,14 @@
     <c>Meat & Seafood</c> <!-- Category -->
 </i>
 */
-class Item {
+class Item 
+{
     public String brand;
     public ArrayList<String> type = new ArrayList<String>();
     public String name;
     public float price;
     public String unit;
-    pubilc String expireDate;
+    public String expireDate;
     public String postDate;
     public String sid;
     public boolean memberOnly = false;
