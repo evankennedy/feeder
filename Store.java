@@ -5,6 +5,8 @@ public class Store {
         public String city;
         public String state;
         public int zip;
+        public float distance;
+        public String id;
         public double latitude;
         public double longitude;
         public DailyHours[] hours; // 0-7 <=> Sunday-Saturday
@@ -38,3 +40,4 @@ public class Store {
             }
         }  
 }
+
