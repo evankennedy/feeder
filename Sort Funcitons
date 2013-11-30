@@ -1,43 +1,104 @@
-import java.util.*;
-import java.text.*;
-import java.util.Arrays;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.ArrayList;
 
-public class Sort 
+import javax.swing.ImageIcon;
+import javax.swing.JApplet;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import org.xml.sax.helpers.DefaultHandler;
+import javax.swing.*;
+
+public class Search extends JFrame implements ActionListener
 {
-	public static void main (String[] args)
-	{
-		int [] a = new int [100000];
-		fillArray(a);
-		long start = System.currentTimeMillis();
-		Arrays.sort(a);// this is quick sort which will sort from lowest price to highests.
-		long finish = System.currentTimeMillis();
-		double total = (finish-start)/1000.0;
-		//displayArray(a);
-		System.out.print("It took " +total + " Second to sort" ); // display the time it took.
-		
-		
-	}
 	
+	public JLabel zipLabel;
+	public JTextField zipField, resultField;
+	public JButton btnSearch, btnExit;
 	
-	public static void fillArray(int []a)
-	{
-		for (int i = 0; i < a.length; i++)
+   
+    public Search()
+    {
+    	
+    	setLayout(null);
+		setSize(600,900);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+		zipLabel = new JLabel("Please Enter Your Zip Code:");
+		zipLabel.setBounds(100,0,200,200);
+		add(zipLabel);
+		
+		zipField = new JTextField(10);
+		zipField.setBounds(100,120,200,25);
+		zipField.addActionListener(this);
+		add(zipField);
+		
+		btnSearch = new JButton ("Search!");
+		btnSearch.setBounds(100,200,100,100);
+		btnSearch.addActionListener(this);
+		add(btnSearch);
+
+		
+		btnExit = new JButton("Main Menu ");
+		btnExit.setBounds(400,400,100,100);
+		btnExit.addActionListener(this);
+		add(btnExit);
+		
+		ImageIcon imageIcon = new ImageIcon("img/image1.jpg");
+		Image image = imageIcon.getImage();
+    }
+    
+    
+    
+    
+    public void actionPerformed(ActionEvent e)
+    {
+    	
+    	if (e.getSource() == btnSearch)
 		{
-			a[i] = (int) (10000*Math.random());
+    		int zipValue;
+            zipValue = Integer.parseInt(zipField.getText());
+  
+			System.out.println("Searching");
+			//String name = p.pickFood();
 			
-			// this one i need the list of food ingrediants prices
-			
+			//e.drawImage(image, 0,0, this);
+			// and then the output go here.........
 		}
-	}
-	
-	public static void displayArray(int[] a)
-	{
-		for (int i = 0; i <a.length; i++)
+    	
+    	if (e.getSource() == btnExit)
 		{
-			System.out.print(a[i]+ " ");
+    		userInterface i = new userInterface();
+    		i.setVisible(true);
+    		
 		}
-		System.out.println();
-		
-	}
+            
+    }
+    
+
+public static String pickFood() 
+{
+	String foodName= " ";
+	String [] foodList = {"Pasta","Pizza",""};
+	int pickNum = (int) (Math.random()*10+1);
+return foodName;
 }
 
+    
+    
+}
+
+        
+      
+        
+       
