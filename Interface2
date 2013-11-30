@@ -3,126 +3,140 @@ import java.awt.event.*;
 import java.applet.Applet;
 import java.awt.Container;
 
+import java.awt.event.ActionListener;
 import javax.swing.JApplet;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.*;
+import javax.swing.ImageIcon;
 
 
-public class Feeder extends Applet
-{
-	public Button help = new Button("Help");
-    public Button credit = new Button("Credit");
-    public Button search = new Button("Search");
-    public Button restart = new Button("Restart");
-    JLabel intro;
-    JLabel zipLabel;
-    //Container container = getContentPane();
-    JTextField zipField, resultField;
-    public Interface canvas = new Interface();
-
-    public void init()
-    {
-    	/*
-    	container.setLayout(new FlowLayout(40));
-    	
-    	intro = new JLabel("Welcom to Feeder program: Please select the follow bottoms to containue: ");
-    	container.add(intro);
-    	*/
-    	canvas.setSize(600,600);	
-    	
-    	add(help);
-        add(credit);
-        add(search);
-        add(restart);
-    	
-        help.addActionListener(canvas);
-        credit.addActionListener(canvas);
-        search.addActionListener(canvas);
-        restart.addActionListener(canvas);
-        
-    }
-    
-    
- 
 
 
-	public class Interface extends Canvas implements ActionListener
-    	{
-    	Object source;
-    	public void actionPerformed(ActionEvent event)
-    	{
-    		source = event.getSource();
-    		
-    	}
-    	
-    	public void buttomClick()
-    	{
-    		
-    		if (source == help)
-    		{
-    			 setUpHelp();
-    		}
-    		
-    		else if (source == credit)
-    		{
-    			 setUpcredit();
-    		}
-    		
-    		else if (source == search)
-    		{
-    			setUpSearch();
-    		}
-    		else if (source == restart)
-    		{
-    			setUpRestart();
-    		}
-    		
-    	}
-    	
-    	
-    	public void setUpHelp()
-        {
-    		  JLabel helpLabel;
-    		  JLabel help2Label;
-    		  Container container = getContentPane();
-    		
-    		 container.setLayout(new FlowLayout(40)); // this one is just set up some 
-             
-             helpLabel = new JLabel("The food finder program is a program that will help the users to find a meal"); 
-             container.add(helpLabel);
-             JLabel help2Label; = new JLabel("using minimum  of money and travling distance. ");
-             container.add(help2Label);
-             
-             
- 
+public class userInterface extends JFrame implements ActionListener
+{	
+	public JLabel name;
+	public JLabel Search;
+	public JLabel Credit;
+	public JLabel Help;
+	public JLabel backGround;
+	public JButton btnHelp;
+	public JButton btnBegin;
+	public JButton btnCredit;
+	public JButton btnExit;
+	public ImageIcon helpImage;
+	public ImageIcon FoodFinderImg;
+	public ImageIcon SearchImage;
+	public ImageIcon BackImage;
+	public ImageIcon CreditImage;
+	public ImageIcon ExitImage;	
+	public ImageIcon CreditLabelImg;
+	public ImageIcon HelpLabelImg;
+	public ImageIcon SearchLabelImg;
 
-        }
-        
-        public void setUpcredit()
-        {
-        		System.out.println("This program is made by programing team Feeder");
-        		System.out.println("any Users can download and use the programs for free");
-                
-       
-        }
-        
-        public void setUpSearch()
-        {
-            
-        }
-        
-        public void setUpRestart()
-        {
-            
-        }
-        
-    	
-  
-    	
-    }
 	
+	public  userInterface()
+	{
+		//new backGroundCheck();
+		
+
+		setLayout(null);
+		setSize(600,900);
+		setBackground(Color.black);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+	
+		
+		
+		FoodFinderImg = new ImageIcon(getClass().getResource("Food-Finder.png"));
+		name = new JLabel(FoodFinderImg);
+		name.setBounds(150,5,301,376);
+		add(name);
+		validate();
+		
+		CreditLabelImg = new ImageIcon(getClass().getResource("Credits-Big-Button.png"));
+		Credit = new JLabel(CreditLabelImg);
+		Credit.setBounds(190,717,371,128);
+		add(Credit);
+		
+		HelpLabelImg =  new ImageIcon(getClass().getResource("Help-Big-Button.png"));
+		Help = new JLabel(HelpLabelImg);
+		Help.setBounds(190,566,371,128);
+		add(Help);
+		validate();
+	
+		SearchLabelImg =  new ImageIcon(getClass().getResource("Save-Big-Button.png"));
+		Search = new JLabel(SearchLabelImg);
+		Search.setBounds(190,415,371,128);
+		add(Search);
+		validate();
+
+		
+		helpImage = new ImageIcon(getClass().getResource("Help-Small-Button.png"));
+		btnHelp = new JButton(helpImage);
+		btnHelp.setBounds(36,415,128,128);
+		
+		btnHelp.addActionListener(this);
+		add(btnHelp);
+
+		
+		SearchImage = new ImageIcon(getClass().getResource("Magnify-Small-Button.png"));
+		btnBegin = new JButton(SearchImage);
+		btnBegin .setBounds(36,566,128,128);
+		btnBegin.addActionListener(this);
+		add(btnBegin);
+		
+		CreditImage = new ImageIcon(getClass().getResource("Credits-Small-Button.png"));
+		btnCredit = new JButton(CreditImage);
+		btnCredit.setBounds(36,717,128,128);
+		btnCredit.addActionListener(this);
+		add(btnCredit);
+		
+		ExitImage = new ImageIcon(getClass().getResource("X-Button.png"));
+		btnExit = new JButton(ExitImage);
+		btnExit.setBounds(500,5,36,36);
+		btnExit.addActionListener(this);
+		add(btnExit);
+		
+		
+		BackImage = new ImageIcon(getClass().getResource("Background.png"));
+		backGround = new JLabel(BackImage);
+		backGround.setBounds(0,0,600,900);
+		add(backGround);
+		
+
+	}
+	
+	public void actionPerformed(ActionEvent e)
+	{
+		
+
+		if (e.getSource() == btnHelp)
+		{
+			System.out.println("help");
+		}
+		if (e.getSource() == btnBegin)
+		{
+			Search s = new Search();
+			s.setVisible(true);
+		}
+		if (e.getSource() == btnCredit)
+		{
+			System.out.println("credit");
+		}
+		
+		if (e.getSource() == btnExit)
+		{
+			System.exit(0);
+			
+		}
+		
+	}	
 	
 }
+
